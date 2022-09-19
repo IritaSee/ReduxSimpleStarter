@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import SearchBar from './components/searchbar';
 
-import App from './components/app';
-import reducers from './reducers';
+import SeachBar from './components/searchbar';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const API_KEY = 'AIzaSyBfd4a3pn9UZ6pf79NdXQSJKgQzOcBPQrE';
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+// create new component
+// producing some html file
+const App = () => {
+    return (
+    <div>
+        <SearchBar/>
+    </div>
+    );
+}
+// const App = function() { // atau pake arrow function kayak const App = () => {...}, bedanya di 'this' doang
+//     return <div>test test</div>;
+// }
+
+// the generated html should be put in the DOM (on the page)
+ReactDOM.render(<App />, document.querySelector('.container'));
